@@ -10,7 +10,7 @@ export const Container = styled.div`
   color: #131a22;
   background-color: #ffffff;
   box-shadow: 0 3px 5px -3px gray;
-  padding: 0 5rem 0 5rem;
+  padding: 0 5rem;
 `;
 
 export const Logo = styled.a`
@@ -20,7 +20,7 @@ export const Logo = styled.a`
   background-color: #9b59b6;
   border: 3px solid #494848;
   border-radius: 4rem;
-  padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+  padding: 0.3rem 0.4rem;
   cursor: pointer;
   text-decoration: none;
   transition: all;
