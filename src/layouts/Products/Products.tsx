@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import { Container } from './styles';
+import { Container, ProductWrapper } from './styles';
 import { getProducts } from '../../services/product';
+import ProductsFilter from '../../components/ProductsFilter/ProductsFilter';
 
 interface ProductData {
   id: number;
@@ -32,19 +33,22 @@ const Products = () => {
   }, []);
 
   return (
-    <Container>
-      {Array.isArray(products) &&
-        products.map((product) => {
-          return (
-            <ProductCard
-              key={product.id}
-              image={product.images[0].src}
-              title={product.title}
-              price={product.variants[0].price}
-            />
-          );
-        })}
-    </Container>
+    <ProductWrapper>
+      <ProductsFilter />
+      <Container>
+        {Array.isArray(products) &&
+          products.map((product) => {
+            return (
+              <ProductCard
+                key={product.id}
+                image={product.images[0].src}
+                title={product.title}
+                price={product.variants[0].price}
+              />
+            );
+          })}
+      </Container>
+    </ProductWrapper>
   );
 };
 

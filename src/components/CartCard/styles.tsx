@@ -9,7 +9,7 @@ export const Container = styled.div`
   overflow-y: auto;
   background-color: #ffffff;
   padding: 1rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   margin-bottom: 1.5rem;
   border-top: 5px solid #9b59b6;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
