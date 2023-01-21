@@ -10,6 +10,7 @@ export const Container = styled.div`
   width: 270px;
   background-color: #ffffff;
   padding: 1rem;
+  margin-bottom: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
@@ -40,9 +41,11 @@ export const TextWrapper = styled(ProductItemWrapper)`
 
 export const ProductTitle = styled(ProductText)`
   color: ${(props) => (props.color ? props.color : '#494848')};
-  font-size: ${(props) => (props.fontSize ? props.fontSize : '1rem')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '0.95rem')};
   text-transform: uppercase;
   font-weight: bold;
+  word-wrap: break-word;
+  max-width: 70%;
 `;
 export const ProductPrice = styled(ProductText)`
   color: ${(props) => (props.color ? props.color : '#494848')};
