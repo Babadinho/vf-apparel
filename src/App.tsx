@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './layouts/Navbar/Navbar';
 
 //import screens
-import Home from './screens/Home';
+import Home from './screens/Home/Home';
 
 const App = () => {
   return (

@@ -7,10 +7,10 @@ export const Container = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  width: 270px;
+  width: 300px;
   background-color: #ffffff;
   padding: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 

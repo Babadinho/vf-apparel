@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard from '../../components/ProductCard.tsx/ProductCard';
+import ProductCard from '../ProductCard.tsx/ProductCard';
 import { Container } from './styles';
 import { getProducts } from '../../services/product';
 
