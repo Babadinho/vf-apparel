@@ -6,4 +6,6 @@ export const Container = styled.div`
   grid-gap: 2.5rem;
   margin-top: 3rem;
   grid-row: 1 / 3;
+  border-top: 1px solid #e4e3e3;
+  padding-top: 2rem;
 `;

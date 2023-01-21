@@ -4,7 +4,6 @@ import { PageText as HeaderText } from '../../public/styles/Helpers/PageText';
 export const Container = styled.div`
   position: relative;
   height: 300px;
-  width: 100vw;
   background-color: #ffffff;
 `;
 
