@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../../components/ProductCard.tsx/ProductCard';
 import { Container } from './styles';
-import { productData } from '../../components/Data';
 import { getProducts } from '../../services/product';
 
 interface ProductData {
