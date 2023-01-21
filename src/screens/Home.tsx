@@ -1,10 +1,11 @@
 import React from 'react';
+import Header from '../layouts/Header/Header';
 
 const Home = () => {
   return (
-    <div>
-      <h1>VF Apparel</h1>
-    </div>
+    <>
+      <Header />
+    </>
   );
 };
 
