@@ -1,4 +1,5 @@
 export default interface ProductData {
+  [x: string]: any;
   id: number;
   title: string;
   price: number;
@@ -17,6 +18,11 @@ export interface CartState {
   totalCost: number;
 }
 
+export interface ProductsState {
+  data: ProductData[];
+}
+
 export default interface RootState {
   cart: CartState;
+  products: ProductsState;
 }
