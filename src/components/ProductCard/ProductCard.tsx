@@ -31,7 +31,7 @@ const ProductCard = ({ image, title, price, addToCart, quickView }: Props) => {
         <ProductPrice>{price}</ProductPrice>
       </TextWrapper>
       <ProductActions>
-        <AddToCart addToCart={addToCart}>Add to Cart</AddToCart>{' '}
+        <AddToCart onClick={addToCart}>Add to Cart</AddToCart>{' '}
         <QuickView quickView={quickView}>Quick View</QuickView>
       </ProductActions>
     </Container>

@@ -34,24 +34,34 @@ export const Logo = styled.a`
 `;
 
 export const CartWrapper = styled(NavItemWrapper)`
+  position: relative;
   display: flex;
   flex-direction: ${(props) =>
     props.flexDirection ? props.flexDirection : 'row'};
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
 `;
 
+export const CartBag = styled.span`
+  font-size: 1.5rem;
+`;
+
 export const CartTotal = styled(NavText)`
   color: ${(props) => (props.color ? props.color : '#2c2b2b')};
   font-size: ${(props) => (props.fontSize ? props.fontSize : '1em')};
+  font-weight: bold;
+  margin-right: 0.4rem;
 `;
 
-export const CartNumber = styled.span`
+export const CartCount = styled.span`
+  position: absolute;
+  right: -0.6rem;
+  top: -0.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.7rem;
-  height: 1.2rem;
-  width: 1.2rem;
+  height: 1.1rem;
+  width: 1.1rem;
   background-color: #9b59b6;
   border-radius: 50%;
   color: #ffffff;

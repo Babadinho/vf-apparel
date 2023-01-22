@@ -5,19 +5,8 @@ import { getProducts } from '../../services/product';
 import ProductsFilter from '../../components/ProductsFilter/ProductsFilter';
 import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
-import { setData } from '../../store/reducers/products';
-
-//define interface for fetched data
-interface ProductData {
-  id: number;
-  title: string;
-  images: {
-    src: string;
-  }[];
-  variants: {
-    price: string;
-  }[];
-}
+import { addToCart } from '../../store/reducers/cartReducer';
+import ProductData from '../../interfaces/ProductData';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -27,9 +16,7 @@ const Products = () => {
     'products',
     getProducts,
     {
-      onSuccess: (data) => {
-        dispatch(setData(data));
-      },
+      cacheTime: 3600000,
     }
   );
 
@@ -47,6 +34,7 @@ const Products = () => {
                 image={product.images[0].src}
                 title={product.title}
                 price={product.variants[0].price}
+                addToCart={() => dispatch(addToCart(product))}
               />
             );
           })}

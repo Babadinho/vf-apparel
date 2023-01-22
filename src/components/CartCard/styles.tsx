@@ -2,24 +2,37 @@ import styled from 'styled-components';
 import { PageText as CartText } from '../../public/styles/Helpers/PageText';
 import { ItemWrapper as CartItemWrapper } from '../../public/styles/Helpers/ItemWrapper';
 
-export const Container = styled.div`
-  grid-column: 3 / -1;
-  width: 330px;
-  height: 500px;
-  overflow-y: auto;
+// cart container to properly align cart main and cart summary
+export const FlexContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #ffffff;
   padding: 1rem;
   margin-top: 2rem;
   margin-bottom: 1.5rem;
   border-top: 5px solid #9b59b6;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 330px;
+  height: 500px;
+  grid-column: 3 / -1;
 `;
 
+// main container to hold cart heading and products
+export const Container = styled.div`
+  overflow-y: auto;
+  margin-top: 2.3rem;
+`;
+
+// cart heading
 export const HeadingWrapper = styled(CartItemWrapper)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin: 0.5rem 0 1.2rem 0;
+  position: absolute;
+  top: 0.5rem;
 `;
 
 export const CartHeading = styled(CartText)`
@@ -42,6 +55,7 @@ export const CartNumber = styled.span`
   margin-left: 0.5rem;
 `;
 
+// cart products including title, description, price and remove button
 export const CartProductWrapper = styled(CartItemWrapper)`
   padding: 0.8rem 0.5rem;
   border-top: 1px solid #e4e3e3;
@@ -103,4 +117,36 @@ export const RemoveButton = styled.button`
     background-color: #504f4f;
     color: #ffffff;
   }
+`;
+
+// cart summary to show the total sum + taxes
+export const CartSummaryWrapper = styled(CartItemWrapper)`
+  background-color: #e3dede;
+  padding: 0.8rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+`;
+
+export const CartSummaryTextWrapper = styled(CartItemWrapper)`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const CartSummaryTitle = styled(CartText)`
+  color: ${(props) => (props.color ? props.color : '#494848')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '0.9rem')};
+  font-weight: bold;
+`;
+
+export const CartSummaryDesc = styled(CartText)`
+  color: ${(props) => (props.color ? props.color : '#858282')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '0.9rem')};
+`;
+
+export const CartSummaryTotal = styled(CartText)`
+  color: ${(props) => (props.color ? props.color : '#494848')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '1.3rem')};
+  font-weight: bold;
 `;
