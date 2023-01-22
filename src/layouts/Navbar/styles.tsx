@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { PageText as NavText } from '../../public/styles/Helpers/PageText';
 import { ItemWrapper as NavItemWrapper } from '../../public/styles/Helpers/ItemWrapper';
 
-export const Container = styled.div`
+export const Container = styled(NavItemWrapper)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,6 +11,14 @@ export const Container = styled.div`
   background-color: #ffffff;
   box-shadow: 0 3px 5px -3px gray;
   padding: 0 5rem;
+
+  &.navFixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
 `;
 
 export const Logo = styled.a`
