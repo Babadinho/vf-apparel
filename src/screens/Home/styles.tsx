@@ -7,4 +7,5 @@ export const Container = styled(HomeItemWrapper)`
   grid-row-gap: 20px;
   grid-column-gap: 20px;
   padding: 0 5rem;
+  margin-bottom: 7rem;
 `;

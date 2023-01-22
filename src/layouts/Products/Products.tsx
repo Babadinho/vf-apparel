@@ -16,9 +16,13 @@ const Products = () => {
   const products = useSelector((state: RootState) => state.products.data); // access cart state from the store
 
   // fetch and cache data using react query
-  const { data, status } = useQuery(['products', filterType], getProducts, {
-    initialData: [],
-  });
+  const { data, status, isLoading } = useQuery(
+    ['products', filterType],
+    getProducts,
+    {
+      initialData: [],
+    }
+  );
 
   // function to filter products
   const filterProducts = (
@@ -56,7 +60,7 @@ const Products = () => {
   return (
     <ProductWrapper>
       <ProductsFilter setFilterType={setFilterType} />
-      {status === 'loading' && <Container>Fetching Data....</Container>}
+      {isLoading && <Container>Fetching Data....</Container>}
       {status === 'error' && <Container>Error Fetching Data....</Container>}
       <Container>
         {products &&
