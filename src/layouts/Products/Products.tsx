@@ -12,29 +12,54 @@ import RootState from '../../interfaces/ProductData';
 
 const Products = () => {
   const dispatch = useDispatch();
+  const [filterType, setFilterType] = useState<string>('a-z');
   const products = useSelector((state: RootState) => state.products.data); // access cart state from the store
 
   // fetch and cache data using react query
-  const { data, status, isLoading } = useQuery<ProductData[]>(
-    'products',
-    getProducts,
-    {
-      cacheTime: 3600000,
-    }
-  );
+  const { data, status } = useQuery(['products', filterType], getProducts, {
+    initialData: [],
+  });
 
-  // dispatch products data to redux store
-  if (status === 'success') {
-    dispatch(setData(data));
-  }
+  // function to filter products
+  const filterProducts = (
+    data: ProductData[] | undefined,
+    filterType: string
+  ) => {
+    if (!data || !Array.isArray(data)) return;
+    if (filterType === 'a-z') {
+      return [...data].sort((a, b) => a.title.localeCompare(b.title));
+    } else if (filterType === 'z-a') {
+      return [...data].sort((a, b) => b.title.localeCompare(a.title));
+    } else if (filterType === 'highest') {
+      return [...data].sort(
+        (a, b) =>
+          parseFloat(b.variants[0].price) - parseFloat(a.variants[0].price)
+      );
+    } else if (filterType === 'lowest') {
+      return [...data].sort(
+        (a, b) =>
+          parseFloat(a.variants[0].price) - parseFloat(b.variants[0].price)
+      );
+    } else {
+      return data;
+    }
+  };
+
+  // useEffect hook to load products based on filtered parameter
+  useEffect(() => {
+    if (status === 'success' && data) {
+      const filteredData = filterProducts(data || [], filterType);
+      dispatch(setData(filteredData && filteredData));
+    }
+  }, [filterType, data, dispatch]);
 
   return (
     <ProductWrapper>
-      <ProductsFilter />
-      {isLoading && <Container>Fetching Data....</Container>}
+      <ProductsFilter setFilterType={setFilterType} />
+      {status === 'loading' && <Container>Fetching Data....</Container>}
       {status === 'error' && <Container>Error Fetching Data....</Container>}
       <Container>
-        {status === 'success' &&
+        {products &&
           products.map((product) => {
             return (
               <ProductCard

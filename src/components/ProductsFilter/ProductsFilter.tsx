@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Select, FilterWarpper } from './styles';
 
-const ProductsFilter = () => {
+const ProductsFilter = ({ setFilterType }: any) => {
   return (
     <FilterWarpper>
-      <Select>
+      <Select onChange={(e) => setFilterType(e.target.value)}>
         <option value='a-z'>Title - A to Z</option>
         <option value='z-a'>Title - Z to A</option>
         <option value='highest'>Highest Price</option>
