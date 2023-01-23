@@ -15,7 +15,7 @@ const Products = () => {
   const [filterType, setFilterType] = useState<string>('a-z');
   const products = useSelector((state: RootState) => state.products.data); // access cart state from the store
 
-  // fetch data using react query
+  // fetch and cache data using react query
   const { data, status, isLoading } = useQuery('products', getProducts, {
     cacheTime: 3600000,
   });
