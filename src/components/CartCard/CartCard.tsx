@@ -14,6 +14,7 @@ import {
   ProductPrice,
   CartProductDetailsWrapper,
   ProductDescription,
+  ProductQuantity,
   RemoveButton,
   CartSummaryWrapper,
   CartSummaryTextWrapper,
@@ -39,9 +40,9 @@ const CartCard = () => {
           <CartHeading>Cart</CartHeading>
           <CartNumber>{cart.itemCount}</CartNumber>
         </HeadingWrapper>
-        {items.map((item) => {
+        {items.map((item, i) => {
           return (
-            <CartProductWrapper key={item.id}>
+            <CartProductWrapper key={i}>
               <CartProductTitleWrapper>
                 <ProductTitle>{item.title}</ProductTitle>
                 <ProductPrice>£{item.variants[0].price}</ProductPrice>
@@ -51,6 +52,7 @@ const CartCard = () => {
                 <ProductDescription>
                   {item.variants[0].title}
                 </ProductDescription>
+                <ProductQuantity>Q: {item.quantity}</ProductQuantity>
                 <RemoveButton onClick={() => dispatch(removeFromCart(item))}>
                   remove
                 </RemoveButton>

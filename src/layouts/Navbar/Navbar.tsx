@@ -15,9 +15,6 @@ const Navbar = () => {
   const [navScroll, setNavScroll] = useState<Boolean>(false);
   const cart = useSelector((state: RootState) => state.cart); // access cart state from the store
 
-  const [cartCount, setCartCount] = useState(cart.itemCount); // store cart items in state
-  const [cartTotal, setCartTotal] = useState(cart.totalCost); // store cart total in state
-
   // navbar scroll detect function to position nav fixed
   const positionNav = (): void => {
     if (window.scrollY >= 66) {
@@ -30,8 +27,6 @@ const Navbar = () => {
   useEffect(() => {
     // adding the event when scrolling
     window.addEventListener('scroll', positionNav);
-    setCartCount(cart.itemCount);
-    setCartTotal(cart.totalCost);
   }, [cart.itemCount]); // listen for updates in cart item store and update state
 
   return (
@@ -39,11 +34,11 @@ const Navbar = () => {
       <Container className={navScroll && 'navFixed'}>
         <Logo href='/'>VF Apparel</Logo>
         <CartWrapper>
-          <CartTotal>£{cartTotal}</CartTotal>
+          <CartTotal>£{cart.totalCost}</CartTotal>
           <CartBag>
             <MdOutlineShoppingBag />
           </CartBag>
-          <CartCount>{cartCount}</CartCount>
+          <CartCount>{cart.itemCount}</CartCount>
         </CartWrapper>
       </Container>
     </>

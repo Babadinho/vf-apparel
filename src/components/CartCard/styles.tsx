@@ -55,7 +55,7 @@ export const CartNumber = styled.span`
   margin-left: 0.5rem;
 `;
 
-// cart products including title, description, price and remove button
+// cart products including title, description, price, quantity and remove button
 export const CartProductWrapper = styled(CartItemWrapper)`
   padding: 0.8rem 0.5rem;
   border-top: 1px solid #e4e3e3;
@@ -96,6 +96,14 @@ export const ProductDescription = styled(CartText)`
   word-wrap: break-word;
   max-width: 70%;
   text-transform: uppercase;
+`;
+
+export const ProductQuantity = styled(CartText)`
+  color: ${(props) => (props.color ? props.color : '#7b7878')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '0.7rem')};
+  font-weight: bold;
+  word-wrap: break-word;
+  margin-right: 2rem;
 `;
 
 export const RemoveButton = styled.button`

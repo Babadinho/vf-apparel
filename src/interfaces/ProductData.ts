@@ -10,6 +10,7 @@ export default interface ProductData {
     price: string;
     title: string;
   }[];
+  quantity: number;
 }
 
 export interface CartState {
