@@ -158,3 +158,12 @@ export const CartSummaryTotal = styled(CartText)`
   font-size: ${(props) => (props.fontSize ? props.fontSize : '1.3rem')};
   font-weight: bold;
 `;
+
+export const EmptyCartMessage = styled(CartText)`
+  color: ${(props) => (props.color ? props.color : '#858282')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '0.9rem')};
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;

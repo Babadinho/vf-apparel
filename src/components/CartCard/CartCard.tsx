@@ -21,6 +21,7 @@ import {
   CartSummaryTitle,
   CartSummaryDesc,
   CartSummaryTotal,
+  EmptyCartMessage,
 } from './styles';
 
 const CartCard = () => {
@@ -60,6 +61,9 @@ const CartCard = () => {
             </CartProductWrapper>
           );
         })}
+        {items.length === 0 && (
+          <EmptyCartMessage>No Items in Cart</EmptyCartMessage>
+        )}
       </Container>
       <CartSummaryWrapper>
         <CartSummaryTextWrapper>
