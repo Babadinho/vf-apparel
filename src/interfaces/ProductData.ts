@@ -1,5 +1,4 @@
 export default interface ProductData {
-  [x: string]: any;
   id: number;
   title: string;
   price: number;
