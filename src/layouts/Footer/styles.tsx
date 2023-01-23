@@ -11,6 +11,13 @@ export const Container = styled(NavItemWrapper)`
   background-color: #ffffff;
   box-shadow: 0 3px 2px 3px gray;
   padding: 0 5rem;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 export const Text = styled(FooterText)`
@@ -18,6 +25,10 @@ export const Text = styled(FooterText)`
   font-size: ${(props) => (props.fontSize ? props.fontSize : '0.9em')};
   font-weight: 500;
   margin-right: 0.4rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0.3rem;
+  }
 `;
 
 export const Link = styled.a`

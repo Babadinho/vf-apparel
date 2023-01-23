@@ -8,4 +8,14 @@ export const Container = styled(HomeItemWrapper)`
   grid-column-gap: 20px;
   padding: 0 5rem;
   margin-bottom: 7rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'element2'
+      'element1';
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    padding: 0 1rem;
+  }
 `;

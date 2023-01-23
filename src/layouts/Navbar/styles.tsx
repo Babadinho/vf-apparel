@@ -19,6 +19,10 @@ export const Container = styled(NavItemWrapper)`
     right: 0;
     z-index: 10;
   }
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const Logo = styled.a`

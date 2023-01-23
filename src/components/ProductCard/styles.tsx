@@ -12,6 +12,10 @@ export const Container = styled.div`
   padding: 1rem;
   margin-bottom: 0.1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const ImageWrapper = styled(ProductItemWrapper)`
@@ -57,6 +61,10 @@ export const ProductActions = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const AddToCart = styled.a`

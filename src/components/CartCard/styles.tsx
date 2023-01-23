@@ -17,6 +17,11 @@ export const FlexContainer = styled.div`
   width: 330px;
   height: 500px;
   grid-column: 3 / -1;
+
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
 `;
 
 // main container to hold cart heading and products
