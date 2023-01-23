@@ -17,8 +17,10 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
+    /* Use PayloadAction from "@reduxjs/toolkit" to define action type 
+    with payload property of ProductData[]*/
     setData: (state, action: PayloadAction<ProductData[]>) => {
-      state.data = action.payload;
+      state.data = action.payload; // Update state's data property with payload data from action.
       state.status = 'success';
     },
   },

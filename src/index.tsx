@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
-// Create a client
+// Create react-query client
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

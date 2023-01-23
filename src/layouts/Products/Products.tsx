@@ -15,7 +15,7 @@ const Products = () => {
   const [filterType, setFilterType] = useState<string>('a-z');
   const products = useSelector((state: RootState) => state.products.data); // access cart state from the store
 
-  // fetch and cache data using react query
+  // fetch data using react query
   const { data, status, isLoading } = useQuery(
     ['products', filterType],
     getProducts,
@@ -29,7 +29,7 @@ const Products = () => {
     data: ProductData[] | undefined,
     filterType: string
   ) => {
-    if (!data || !Array.isArray(data)) return;
+    if (!data || !Array.isArray(data)) return; // check if "data" is defined and if it's an array
     if (filterType === 'a-z') {
       return [...data].sort((a, b) => a.title.localeCompare(b.title));
     } else if (filterType === 'z-a') {
@@ -49,10 +49,12 @@ const Products = () => {
     }
   };
 
-  // useEffect hook to load products based on filtered parameter
+  /* UseEffect hook to filter products and update data with filtered data if status is 'success' 
+  and data is present, by calling filterProducts with data and filterType, 
+  and then dispatching setData with filteredData */
   useEffect(() => {
     if (status === 'success' && data) {
-      const filteredData = filterProducts(data || [], filterType);
+      const filteredData = filterProducts(data, filterType);
       dispatch(setData(filteredData && filteredData));
     }
   }, [filterType, data, dispatch]);
